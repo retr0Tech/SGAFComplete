@@ -120,126 +120,135 @@ namespace SGAFComplete.ViewModels
                         listadedescripciones = 7;
                     }
                     Habilitar = false;
-                    switch (listadedescripciones)
+                    try
                     {
-                        case 0:
-                            Descripcion.Clear();
-                            data.Clear();
-                            HabilitarAnterior = false;
-                            foreach (var i in ListaDeEmpresas)
-                            {
-                                data.Add(i.Descripcion);
-                            }
-                            foreach (var element in data)
-                                Descripcion.Add(element);
-                            decrpData = Descripcion;
-                            ListaActual = 0;
-                            ListaDe = ListaDescripcion[ListaActual];
-                            break;
+                        switch (listadedescripciones)
+                        {
+                            case 0:
+                                Descripcion.Clear();
+                                data.Clear();
+                                HabilitarAnterior = false;
+                                foreach (var i in ListaDeEmpresas)
+                                {
+                                    data.Add(i.Descripcion);
+                                }
+                                foreach (var element in data)
+                                    Descripcion.Add(element);
+                                decrpData = Descripcion;
+                                ListaActual = 0;
+                                ListaDe = ListaDescripcion[ListaActual];
+                                break;
 
-                        case 1:
-                            Descripcion.Clear();
-                            data.Clear();
-                            HabilitarAnterior = true;
-                            foreach (var i in ListaDeEdificios.Where(x => x.Parent == (ListaDeEmpresas.Where(p => p.Descripcion == _Empresa)).First().Compania))
-                            {
-                                data.Add(i.Descripcion);
-                            }
-                            foreach (var element in data)
-                                Descripcion.Add(element);
-                            decrpData = Descripcion;
-                            ListaActual = 1;
-                            ListaDe = ListaDescripcion[ListaActual];
-                            break;
-                        case 2:
-                            Descripcion.Clear();
-                            data.Clear();
-                            foreach (var i in ListaPisos.Where(x => x.Parent == (ListaDeEdificios.Where(p => p.Descripcion == _Edificio)).First().Localidad))
-                            {
-                                data.Add(i.Descripcion);
-                            }
-                            foreach (var i in data)
-                                Descripcion.Add(i);
-                            data = Descripcion.ToList();
-                            decrpData = Descripcion;
-                            ListaActual = 2;
-                            ListaDe = ListaDescripcion[ListaActual];
-                            break;
-                        case 3:
-                            Descripcion.Clear();
-                            data.Clear();
-                            foreach (var i in ListaCentroCostos.Where(x => x.Parent == (ListaDeEmpresas.Where(p => p.Descripcion == _Empresa)).First().Compania))
-                            {
-                                data.Add(i.Descripcion);
-                            }
-                            foreach (var i in data)
-                                Descripcion.Add(i);
-                            data = Descripcion.ToList();
-                            decrpData = Descripcion;
-                            ListaActual = 3;
-                            ListaDe = ListaDescripcion[ListaActual];
-                            break;
-                        case 4:
-                            Descripcion.Clear();
-                            data.Clear();
-                           
-                            foreach (var i in ListaDeOficinas.Where(x => x.Parent == (ListaPisos.Where(p => p.Descripcion == _Piso)).First().Area))
-                            {
-                                data.Add(i.Descripcion);
-                            }
-                            foreach (var i in data)
-                                Descripcion.Add(i);
-                            data = Descripcion.ToList();
-                            decrpData = Descripcion;
-                            ListaActual = 4;
-                            ListaDe = ListaDescripcion[ListaActual];
-                            break;
-                        case 5:
-                            Descripcion.Clear();
-                            data.Clear();
-                            Habilitar = true;
-                            foreach (var i in ListaDescripcionesActivos)
-                            {
-                                data.Add(i.Descripcion);
-                            }
-                            foreach (var i in data)
-                                Descripcion.Add(i);
-                            data = Descripcion.ToList();
-                            decrpData = Descripcion;
-                            ListaActual = 5;
-                            ListaDe = ListaDescripcion[ListaActual];
-                            break;
-                        case 6:
-                            Descripcion.Clear();
-                            data.Clear();
-                            Habilitar = true;
-                            foreach (var i in ListaMarcaModelos.Where(x => x.DescripcionActivo == (ListaDescripcionesActivos.Where(p => p.Descripcion == _Descripcion)).First().DescripcionActivo))
-                            {
-                                data.Add(i.Descripcion);
-                            }
-                            foreach (var i in data)
-                                Descripcion.Add(i);
-                            data = Descripcion.ToList();
-                            decrpData = Descripcion;
-                            ListaActual = 6;
-                            ListaDe = ListaDescripcion[ListaActual];
-                            break;
-                        case 7:
-                            Descripcion.Clear();
-                            data.Clear();
+                            case 1:
+                                Descripcion.Clear();
+                                data.Clear();
+                                HabilitarAnterior = true;
+                                foreach (var i in ListaDeEdificios.Where(x => x.Parent == (ListaDeEmpresas.Where(p => p.Descripcion == _Empresa)).First().Compania))
+                                {
+                                    data.Add(i.Descripcion);
+                                }
+                                foreach (var element in data)
+                                    Descripcion.Add(element);
+                                decrpData = Descripcion;
+                                ListaActual = 1;
+                                ListaDe = ListaDescripcion[ListaActual];
+                                break;
+                            case 2:
+                                Descripcion.Clear();
+                                data.Clear();
+                                foreach (var i in ListaPisos.Where(x => x.Parent == (ListaDeEdificios.Where(p => p.Descripcion == _Edificio)).First().Localidad))
+                                {
+                                    data.Add(i.Descripcion);
+                                }
+                                foreach (var i in data)
+                                    Descripcion.Add(i);
+                                data = Descripcion.ToList();
+                                decrpData = Descripcion;
+                                ListaActual = 2;
+                                ListaDe = ListaDescripcion[ListaActual];
+                                break;
+                            case 3:
+                                Descripcion.Clear();
+                                data.Clear();
+                                foreach (var i in ListaCentroCostos.Where(x => x.Parent == (ListaDeEmpresas.Where(p => p.Descripcion == _Empresa)).First().Compania))
+                                {
+                                    data.Add(i.Descripcion);
+                                }
+                                foreach (var i in data)
+                                    Descripcion.Add(i);
+                                data = Descripcion.ToList();
+                                decrpData = Descripcion;
+                                ListaActual = 3;
+                                ListaDe = ListaDescripcion[ListaActual];
+                                break;
+                            case 4:
+                                Descripcion.Clear();
+                                data.Clear();
 
-                            foreach (var i in ListaDeEmpleados)
-                            {
-                                data.Add(i.Descripcion);
-                            }
-                            foreach (var i in data)
-                                Descripcion.Add(i);
-                            data = Descripcion.ToList();
-                            decrpData = Descripcion;
-                            ListaActual = 7;
-                            ListaDe = ListaDescripcion[ListaActual];
-                            break;
+                                foreach (var i in ListaDeOficinas.Where(x => x.Parent == (ListaPisos.Where(p => p.Descripcion == _Piso)).First().Area))
+                                {
+                                    data.Add(i.Descripcion);
+                                }
+                                foreach (var i in data)
+                                    Descripcion.Add(i);
+                                data = Descripcion.ToList();
+                                decrpData = Descripcion;
+                                ListaActual = 4;
+                                ListaDe = ListaDescripcion[ListaActual];
+                                break;
+                            case 5:
+                                Descripcion.Clear();
+                                data.Clear();
+                                Habilitar = true;
+                                foreach (var i in ListaDescripcionesActivos)
+                                {
+                                    data.Add(i.Descripcion);
+                                }
+                                foreach (var i in data)
+                                    Descripcion.Add(i);
+                                data = Descripcion.ToList();
+                                decrpData = Descripcion;
+                                ListaActual = 5;
+                                ListaDe = ListaDescripcion[ListaActual];
+                                break;
+                            case 6:
+                                Descripcion.Clear();
+                                data.Clear();
+                                Habilitar = true;
+                                foreach (var i in ListaMarcaModelos.Where(x => x.DescripcionActivo == (ListaDescripcionesActivos.Where(p => p.Descripcion == _Descripcion)).First().DescripcionActivo))
+                                {
+                                    data.Add(i.Descripcion);
+                                }
+                                foreach (var i in data)
+                                    Descripcion.Add(i);
+                                data = Descripcion.ToList();
+                                decrpData = Descripcion;
+                                ListaActual = 6;
+                                ListaDe = ListaDescripcion[ListaActual];
+                                break;
+                            case 7:
+                                Descripcion.Clear();
+                                data.Clear();
+
+                                foreach (var i in ListaDeEmpleados)
+                                {
+                                    data.Add(i.Descripcion);
+                                }
+                                foreach (var i in data)
+                                    Descripcion.Add(i);
+                                data = Descripcion.ToList();
+                                decrpData = Descripcion;
+                                ListaActual = 7;
+                                ListaDe = ListaDescripcion[ListaActual];
+                                break;
+                        }
                     }
+                    catch
+                    {
+                        App.Current.MainPage.DisplayAlert("Error", "Debe seleccionar los campos anteriores a este", "ok");
+                        Descripcion = new ObservableCollection<string>();
+                    }
+
                 }
             }
         }
