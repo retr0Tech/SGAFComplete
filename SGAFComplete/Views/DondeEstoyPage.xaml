@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SGAFComplete.Views.DondeEstoyPage">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="20">
+            <Label
+                Text="Ubicacion Actual"
+                FontSize="Title"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="Black"/>
+            <Label
+                HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Empresa:&#10;"
+                              TextColor="Black"
+                              FontSize="15"/>
+                        <Span Text="{Binding Empresa}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label
+                HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Edificio:&#10;"
+                              TextColor="Black"
+                              FontSize="15"/>
+                        <Span Text="{Binding Edificio}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label
+                HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Piso:&#10;"
+                              TextColor="Black"
+                              FontSize="15"/>
+                        <Span Text="{Binding Piso}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label
+                HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Centro de Costo:&#10;"
+                              TextColor="Black"
+                              FontSize="15"/>
+                        <Span Text="{Binding CentroCosto}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label
+                HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Oficina:&#10;"
+                              TextColor="Black"
+                              FontSize="15"/>
+                        <Span Text="{Binding Oficina}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label
+                HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Descripción:&#10;"
+                              TextColor="Black"
+                              FontSize="15"/>
+                        <Span Text="{Binding Descripcion}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label
+                HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Empleado:&#10;"
+                              TextColor="Black"
+                              FontSize="15"/>
+                        <Span Text="{Binding Empleado}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

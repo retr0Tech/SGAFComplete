@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.1.3" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.7.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.2.0.223" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Behaviors\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\ReceocionActivos.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="javaBinding">
+      <HintPath>..\..\SGAF_Lite\SGAF_Lite\bin\javaBinding\bin\Debug\javaBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\SGAF_Lite\SGAF_Lite\bin\Debug\netstandard2.0\Mono.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="SGAFComplete.Android">
+      <HintPath>..\SGAFComplete.Android\bin\Debug\SGAFComplete.Android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

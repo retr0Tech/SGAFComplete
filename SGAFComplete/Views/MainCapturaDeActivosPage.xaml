@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="SGAFComplete.Views.MainCapturaDeActivosPage"
+            Title="Sistema Gestión Activos"
+            NavigationPage.HasBackButton="False"
+            xmlns:local="clr-namespace:SGAFComplete.Behaviors"
+            CurrentPageChanged="TabChanged" >
+    <!--Pages can be added as references or inline-->
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem
+            Order="Secondary"
+            Text="Configuración"
+            Command="{Binding config}"
+            ></ToolbarItem>
+        <ToolbarItem
+            Order="Secondary"
+            Text="Salir"
+            Command="{Binding Salir}"
+            ></ToolbarItem>
+    </TabbedPage.ToolbarItems>
+    <ContentPage Title="Parametros">
+        <StackLayout Padding="20">
+            <StackLayout
+                Orientation="Horizontal">
+                <Button
+                    Text="&lt;"
+                    IsVisible="{Binding HabilitarAnterior}"
+                    Command="{Binding AnteriorBtn}"/>
+                <Button
+                    Text="Agregar"
+                    IsVisible="{Binding Habilitar}"
+                    Command="{Binding BtnAgregar}"/>
+                <Button
+                    Text="Ubicación"
+                    Command="{Binding BtnUbicacion}"
+                    HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15"/>
+                </Grid.RowDefinitions>
+                    <Picker
+                        x:Name="myPicker"
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        FontSize="15"
+                        SelectedItem="{Binding ListaDe}"
+                        SelectedIndex="{Binding SelectedIndex}"
+                        ItemsSource="{Binding ListaDescripcion}"/>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Text="Lista de:"/>
+
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        FontSize="15"
+                        Text="{Binding Busqueda, Mode=TwoWay}">
+                        <Entry.Triggers>
+                            <EventTrigger Event="TextChanged">
+                                <local:EntryTrigger/>
+                            </EventTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                        
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="0"
+                    
+                        Text="Buscar:"/>
+                    <ListView
+                        Grid.ColumnSpan="2"
+                        Grid.Row="2"
+                        Grid.RowSpan="6"
+                        HeightRequest="200"
+                        HasUnevenRows="true"
+                        ItemsSource="{Binding Descripcion}"
+                        BackgroundColor= "white"
+                        
+                        SelectedItem="{Binding Selectoption, Mode=TwoWay}"
+                        
+                        x:Name="listv">
+                        <ListView.ItemTemplate>
+                            
+                            <DataTemplate>
+                                <ViewCell
+                                    Height="40">
+                                    <StackLayout
+                                        Padding="20, 0"
+                                        VerticalOptions="CenterAndExpand">
+                                        <Label
+                                            FontSize="15"
+                                            Text="{Binding .}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            <!--
+            ItemTapped="Listv_ItemTapped"
+                SelectedItem="{Binding SelectedContact}"-->
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="Entrada">
+        <StackLayout
+            Padding="20">
+            <Button
+                Text="Ubicacion"
+                Command="{Binding BtnUbicacion}"/>
+            <Label
+                HorizontalOptions="Center"
+                
+                Text="{Binding LinkCentroCosto}"
+                FontSize="20"
+                TextDecorations="Underline"
+                TextColor="Blue">
+                <Label.GestureRecognizers>
+                     <TapGestureRecognizer
+                        Command="{Binding tappedCentroCosto}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+                HorizontalOptions="Center"
+                Text="{Binding LinkOficina}"
+                FontSize="20"
+                TextDecorations="Underline"
+                TextColor="Blue">
+                <Label.GestureRecognizers>
+                     <TapGestureRecognizer
+                        Command="{Binding tappedOficina}"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label
+                HorizontalOptions="EndAndExpand"
+                FontSize="Title"
+                FontAttributes="Bold"
+                Text="RFID"/>
+            <Label
+                HorizontalTextAlignment="End"
+                FontSize="20"
+                Margin="10, 0"
+                Text="{Binding Tag}"/>
+            <Label
+                HorizontalOptions="Start"
+                VerticalOptions="EndAndExpand"
+                Text="{Binding LinkDescripcion}"
+                FontSize="20"
+                TextDecorations="Underline"
+                TextColor="Blue">
+                <Label.GestureRecognizers>
+                     <TapGestureRecognizer
+                        Command="{Binding tappedDescripcion}"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label
+                HorizontalOptions="Start"
+                Text="{Binding LinkMarcaModelo}"
+                FontSize="20"
+                TextDecorations="Underline"
+                TextColor="Blue">
+                <Label.GestureRecognizers>
+                     <TapGestureRecognizer
+                        Command="{Binding tappedMarcaModelo}"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <StackLayout
+                VerticalOptions="EndAndExpand"
+                Orientation="Horizontal">
+                <Label
+                    VerticalOptions="Center"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="RFID:"/>
+                <Entry
+                    HorizontalOptions="FillAndExpand"
+                    Text="{Binding RFIDTag}"
+                    ReturnCommand="{Binding enterPressed}"/>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Consulta">
+        <StackLayout
+                Padding="5">
+                <Label
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Reubicar"
+                    FontSize="Title"/>
+                <Entry
+                    Placeholder="RFID Tag"
+                    Text="{Binding RFIDTagParaAsignar}"
+                    ReturnCommand="{Binding enterPressedConsulta}"/>
+                <Grid
+                    Margin="10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        VerticalOptions="Center"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Empresa:">
+                    </Label>
+                    <Entry
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Placeholder="Empresa"
+                        Text="{Binding Empresa}"/>
+                    <Label
+                        VerticalOptions="Center"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Piso"/>
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Placeholder="Piso"
+                        Text="{Binding Piso}"/>
+                    <Label
+                        VerticalOptions="Center"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Text="Centro de costo"/>
+                    <Entry
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Placeholder="Centro Costo"
+                        Text="{Binding CentroCosto}">
+                    </Entry>
+                    
+                    <Label
+                        VerticalOptions="Center"
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Text="Oficina"></Label>
+                    <Entry
+                        Placeholder="Oficina"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Text="{Binding Oficina}"/>
+
+
+                    <Label
+                        VerticalOptions="Center"
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Text="Descripcion"/>
+                    <Entry
+                        Placeholder="Descripción"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Text="{Binding DescripcionActivo}">
+
+                    </Entry>
+                    <Label
+                        VerticalOptions="Center"
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Text="Serial"></Label>
+                    <Entry
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Placeholder="Serial"
+                        HorizontalOptions="FillAndExpand"
+                        Text="{Binding Serial}">
+                    </Entry>
+                    <Label
+                        VerticalOptions="Center"
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Text="Empleado"></Label>
+                    
+                    <Entry
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Placeholder="Empleado"
+                        HorizontalOptions="FillAndExpand"
+                        Text="{Binding Empleado}">
+                    </Entry>
+                </Grid>
+            </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Anterior">
+        <StackLayout>
+            <StackLayout
+                Padding="20"
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Horizontal">
+                <Button
+                    WidthRequest="40"
+                    Text="&lt;&lt;"
+                    IsEnabled="{Binding FirstAsset}"
+                    Command="{Binding PrimerActivo}"/>
+                <Button
+                    Text="&lt;"
+                    WidthRequest="40"
+                    IsEnabled="{Binding PreviousAsset}"
+                    Command="{Binding ActivoAnterior}"/>
+                <Label
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    FontSize="Body"
+                    TextColor="Black"
+                    Text="Captura Anterior"></Label>
+                <Button
+                    Text="&gt;"
+                    WidthRequest="40"
+                    IsEnabled="{Binding NextAsset}"
+                    Command="{Binding ActivoSiguiente}"/>
+                <Button
+                    Text="&gt;&gt;"
+                    WidthRequest="40"
+                    IsEnabled="{Binding LastAsset}"
+                    Command="{Binding UltimoActivo}"/>
+            </StackLayout>
+            <Label
+                Margin="40, 0"
+                Text="{Binding OficinaAnterior, StringFormat='Oficina: {0}'}"/>
+            <Label
+                Margin="40, 0"
+                Text="{Binding DescripcionAnterior, StringFormat='Descripcion: {0}'}"/>
+            <Label
+                Margin="40, 0"
+                Text="{Binding TAG, StringFormat='TAG: {0}'}"/>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>

@@ -1,0 +1,86 @@
+﻿using System;
+namespace SGAFComplete.Models
+{
+    public class Parametros
+    {
+        public string PrefijoCompania { get; set; }
+        public string PrefijoLocalidad { get; set; }
+        public string PrefijoArea { get; set; }
+        public string PrefijoDepartamento { get; set; }
+        public string PrefijoDivision { get; set; }
+        public string PrefijoOficina { get; set; }
+        public string PrefijoClaseActivo { get; set; }
+        public string PrefijoEmpleado { get; set; }
+        public int Color_Edit { get; set; }
+        public int Color_Add { get; set; }
+        public int Color_Del { get; set; }
+        public int Color_View { get; set; }
+        public int CantidadRegistrosVacios { get; set; }
+        public string TituloPrincipalReporte { get; set; }
+        public string NombreEncargado { get; set; }
+        public int PedirEmpleado { get; set; }
+        public int PedirIDFoto { get; set; }
+        public int PedirSerie { get; set; }
+        public int Color_Fondo { get; set; }
+        public int Color_Inicio_Barra { get; set; }
+        public int Color_Fin_Barra { get; set; }
+        public int Color_Read_Only { get; set; }
+        public string Formato_Fecha_Corta { get; set; }
+        public string PrefijosFotos { get; set; }
+        public string MascarillaNumeroFoto { get; set; }
+        public string Ruta_backup { get; set; }
+        public string ClaveRoles { get; set; }
+        public string RutaFotoEmpleado { get; set; }
+        public string RutaFotoActivo { get; set; }
+        public string NoTagMsg { get; set; }
+        public string Nombre_Compania { get; set; }
+        public string Nombre_Companias { get; set; }
+        public string Descripcion_Compania { get; set; }
+        public string Nombre_Localidad { get; set; }
+        public string Nombre_Localidades { get; set; }
+        public string Descripcion_Localidades { get; set; }
+        public string Nombre_Area { get; set; }
+        public string Nombre_Areas { get; set; }
+        public string Descripcion_Areas { get; set; }
+        public string Nombre_CentroDeCosto { get; set; }
+        public string Nombre_CentroDeCostos { get; set; }
+        public string Descripcion_CentroDeCostos { get; set; }
+        public string Nombre_Oficina { get; set; }
+        public string Nombre_Oficinas { get; set; }
+        public string Descripcion_Oficinas { get; set; }
+        public string Nombre_MarcaModelo { get; set; }
+        public string Nombre_MarcasModelos { get; set; }
+        public string Descripcion_MarcasModelos { get; set; }
+        public string Nombre_Empleado { get; set; }
+        public string Nombre_Empleados { get; set; }
+        public string Descripcion_Empleados { get; set; }
+        public string Nombre_ERP { get; set; }
+        public string Descripcion_ERP { get; set; }
+        public string Nombre_ClaseActivo { get; set; }
+        public string Nombre_ClasesActivos { get; set; }
+        public string Descripcion_ClasesActivos { get; set; }
+        public string Nombre_DescripcionActivo { get; set; }
+        public string Nombre_DescripcionesActivos { get; set; }
+        public string Descripcion_DescripcionesActivos { get; set; }
+        public string Grupo_Seguridad { get; set; }
+        public string Grupo_Usuario { get; set; }
+        public string Dominio { get; set; }
+        public string Computadora { get; set; }
+        public string Es_Primeravez { get; set; }
+        public string RutaImagenPlano { get; set; }
+        public int Empleado_Por_Default { get; set; }
+        public string PrefijoCodigoERP { get; set; }
+        public int CantidadCerosCodigoERP { get; set; }
+        public int SecuenciaFoto { get; set; }
+        public string Ruta_Archivos_SGAF_a_ERP { get; set; }
+        public string Nombre_Archivo_Modificaciones { get; set; }
+        public string Nombre_Archivo_Cambio_Centros_Costo { get; set; }
+        public int Recepcion_Compania { get; set; }
+        public int Recepcion_Localidad { get; set; }
+        public int Recepcion_Area { get; set; }
+        public int Recepcion_Departamento { get; set; }
+        public int Recepcion_Oficina { get; set; }
+        public string PrefijoRFID { get; set; }
+        public int UsarTabEnQRRecepcion { get; set; }
+    }
+}

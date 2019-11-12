@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SGAFComplete.Views.AgregarDescripcionPage"
+             xmlns:local="clr-namespace:SGAFComplete.Behaviors">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <StackLayout
+                Orientation="Horizontal">
+                <Button
+                    Text="Agregar Descripción"
+                    Command="{Binding BtnAgregar}"
+                    IsEnabled="{Binding enable}"
+                    BackgroundColor="LightGreen"/>
+                <Button
+                    Text="Cerrar"
+                    HorizontalOptions="EndAndExpand"
+                    BackgroundColor="IndianRed"
+                    Command="{Binding BtnCerrar}"/>
+            </StackLayout>
+            
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15"/>
+                </Grid.RowDefinitions>
+                    <Label
+                        x:Name="myPicker"
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Text="Clase"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"/>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        FontSize="15"
+                        Placeholder="Buscar"
+                        Text="{Binding Busqueda, Mode=TwoWay}">
+                        <Entry.Triggers>
+                            <EventTrigger Event="TextChanged">
+                                <local:EntryTriggerAdd/>
+                            </EventTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                    <StackLayout
+                        Orientation="Horizontal"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="2">
+                        <Switch
+                            IsToggled="{Binding switchPedirSerial}"/>
+                        <Label
+                            Text="Pedir Serial"
+                            VerticalOptions="Center"
+                            FontSize="12"/>
+                        <Switch
+                            IsToggled="{Binding switchPedirERP}"/>
+                        <Label
+                            Text="Pedir Codigo ERP"
+                            VerticalOptions="Center"
+                            FontSize="12"/>
+                    </StackLayout>
+                    <ListView
+                        Grid.ColumnSpan="2"
+                        Grid.Row="3"
+                        Grid.RowSpan="10"
+                        HasUnevenRows="true"
+                        ItemsSource="{Binding Descripcion}"
+                        BackgroundColor= "white"
+                        
+                        SelectedItem="{Binding Selectoption, Mode=TwoWay}"
+                        
+                        x:Name="listv">
+                        <ListView.ItemTemplate>
+                            
+                            <DataTemplate>
+                                <ViewCell
+                                    Height="40">
+                                    <StackLayout
+                                        Padding="20, 0"
+                                        VerticalOptions="CenterAndExpand">
+                                        <Label
+                                            FontSize="15"
+                                            Text="{Binding .}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            <!--
+            ItemTapped="Listv_ItemTapped"
+                SelectedItem="{Binding SelectedContact}"-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

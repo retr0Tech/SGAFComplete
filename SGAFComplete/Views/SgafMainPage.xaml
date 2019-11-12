@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SGAFComplete.Views.SgafMainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Order="Secondary"
+            Text="Configuración"
+            Command="{Binding ClickConfig}"
+            ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+            <StackLayout
+                Padding="40">
+
+                <Image
+                    Source="Logo.png"
+                    HeightRequest="90">
+                </Image>
+                <Grid
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                </Grid>
+                <StackLayout
+                    VerticalOptions="CenterAndExpand"
+                    Padding="20,0">
+                    <Button
+                        Command="{Binding Clicked}"
+                        BackgroundColor="#404040"
+                        BorderRadius="23"
+                        HeightRequest="46"
+                        HorizontalOptions="FillAndExpand"
+                        IsEnabled="True"
+                        Text="Acceder"
+                        TextColor="White">
+                    </Button>
+                </StackLayout>
+                <Label
+                    Text="SGAF_1.5.1"/>
+            </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

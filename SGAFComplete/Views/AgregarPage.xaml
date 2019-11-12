@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage
+    x:Class="SGAFComplete.Views.AgregarPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"
+                                   PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+
+    <!--  You can use any elements here which are extended from Xamarin.Forms.View  -->
+    <StackLayout Margin="12"
+                 Padding="24"
+                 Spacing="24"
+                 BackgroundColor="White"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center">
+            <Label Text="Nombre Descripción" 
+                   FontSize="25"></Label>
+            <Entry
+                Text="{Binding nombreDescripcion}"
+                FontSize="20"
+                HorizontalOptions="FillAndExpand"></Entry>
+            
+        
+        
+            <Label Text="Escanear codigo" 
+                   FontSize="25"/>
+            <Entry
+                Text="{Binding codigoDescripcion}"
+                FontSize="20"
+                Placeholder="Nueva Modelo"
+                HorizontalOptions="FillAndExpand"
+                Keyboard="Numeric"
+                ReturnCommand="{Binding enterKeyPressed}"/>
+
+    </StackLayout>
+</pages:PopupPage>
