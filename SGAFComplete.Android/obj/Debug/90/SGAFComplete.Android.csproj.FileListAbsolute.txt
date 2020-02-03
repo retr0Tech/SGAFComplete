@@ -1,0 +1,4 @@
+C:\Users\GAD Desarrollo\SGAFComplete\SGAFComplete.Android\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
+C:\Users\GAD Desarrollo\SGAFComplete\SGAFComplete.Android\obj\Debug\90\build.props
+C:\Users\GAD Desarrollo\SGAFComplete\SGAFComplete.Android\obj\Debug\90\adb.props
+C:\Users\GAD Desarrollo\SGAFComplete\SGAFComplete.Android\obj\Debug\90\SGAFComplete.Android.csprojAssemblyReference.cache
